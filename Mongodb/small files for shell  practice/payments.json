@@ -1,0 +1,52 @@
+[
+  {
+    "_id": { "$oid": "68e000000000000000000001" },
+    "orderId": { "$oid": "66c000000000000000000001" },
+    "userId": { "$oid": "64a000000000000000000001" },
+    "amount": 139997,
+    "method": "credit_card",
+    "status": "success",
+    "transactionId": "TXN10001",
+    "paymentDate": { "$date": "2024-01-15T10:35:00Z" }
+  },
+  {
+    "_id": { "$oid": "68e000000000000000000002" },
+    "orderId": { "$oid": "66c000000000000000000002" },
+    "userId": { "$oid": "64a000000000000000000002" },
+    "amount": 189999,
+    "method": "upi",
+    "status": "success",
+    "transactionId": "TXN10002",
+    "paymentDate": { "$date": "2024-02-20T11:05:00Z" }
+  },
+  {
+    "_id": { "$oid": "68e000000000000000000003" },
+    "orderId": { "$oid": "66c000000000000000000003" },
+    "userId": { "$oid": "64a000000000000000000004" },
+    "amount": 25998,
+    "method": "debit_card",
+    "status": "success",
+    "transactionId": "TXN10003",
+    "paymentDate": { "$date": "2024-03-05T14:05:00Z" }
+  },
+  {
+    "_id": { "$oid": "68e000000000000000000004" },
+    "orderId": { "$oid": "66c000000000000000000004" },
+    "userId": { "$oid": "64a000000000000000000005" },
+    "amount": 87998,
+    "method": "credit_card",
+    "status": "refunded",
+    "transactionId": "TXN10004",
+    "paymentDate": { "$date": "2024-04-10T16:10:00Z" }
+  },
+  {
+    "_id": { "$oid": "68e000000000000000000005" },
+    "orderId": { "$oid": "66c000000000000000000005" },
+    "userId": { "$oid": "64a000000000000000000001" },
+    "amount": 119999,
+    "method": "upi",
+    "status": "success",
+    "transactionId": "TXN10005",
+    "paymentDate": { "$date": "2024-05-12T09:05:00Z" }
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "_id": { "$oid": "64a000000000000000000001" },
+    "name": "Rahul Sharma",
+    "email": "rahul@gmail.com",
+    "age": 29,
+    "gender": "M",
+    "status": "active",
+    "address": {
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "country": "India",
+      "pincode": "500001"
+    },
+    "roles": ["customer"],
+    "createdAt": { "$date": "2021-04-10T10:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "64a000000000000000000002" },
+    "name": "Priya Reddy",
+    "email": "priya@gmail.com",
+    "age": 34,
+    "gender": "F",
+    "status": "active",
+    "address": {
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "country": "India",
+      "pincode": "560001"
+    },
+    "roles": ["customer", "premium"],
+    "createdAt": { "$date": "2020-08-15T09:30:00Z" }
+  },
+  {
+    "_id": { "$oid": "64a000000000000000000003" },
+    "name": "Amit Kumar",
+    "email": "amit@yahoo.com",
+    "age": 41,
+    "gender": "M",
+    "status": "inactive",
+    "address": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "country": "India",
+      "pincode": "400001"
+    },
+    "roles": ["customer"],
+    "createdAt": { "$date": "2019-01-20T12:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "64a000000000000000000004" },
+    "name": "Sneha Patel",
+    "email": "sneha@gmail.com",
+    "age": 26,
+    "gender": "F",
+    "status": "active",
+    "address": {
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "country": "India",
+      "pincode": "380001"
+    },
+    "roles": ["customer"],
+    "createdAt": { "$date": "2022-06-11T08:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "64a000000000000000000005" },
+    "name": "John Smith",
+    "email": "john@gmail.com",
+    "age": 38,
+    "gender": "M",
+    "status": "active",
+    "address": {
+      "city": "New York",
+      "state": "New York",
+      "country": "USA",
+      "pincode": "10001"
+    },
+    "roles": ["customer", "premium"],
+    "createdAt": { "$date": "2018-11-05T15:00:00Z" }
+  }
+]

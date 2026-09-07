@@ -1,0 +1,97 @@
+[
+  {
+    "_id": { "$oid": "65b000000000000000000001" },
+    "name": "MacBook Pro 14",
+    "category": "Electronics",
+    "brand": "Apple",
+    "price": 189999,
+    "stock": 25,
+    "tags": ["laptop", "premium", "computer"],
+    "specifications": {
+      "ram": 16,
+      "storage": 512,
+      "processor": "M3 Pro"
+    },
+    "rating": 4.8,
+    "createdAt": { "$date": "2023-01-10T10:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "65b000000000000000000002" },
+    "name": "iPhone 15",
+    "category": "Electronics",
+    "brand": "Apple",
+    "price": 79999,
+    "stock": 100,
+    "tags": ["mobile", "smartphone", "premium"],
+    "specifications": {
+      "ram": 6,
+      "storage": 128,
+      "processor": "A16"
+    },
+    "rating": 4.7,
+    "createdAt": { "$date": "2023-09-20T10:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "65b000000000000000000003" },
+    "name": "Galaxy S24",
+    "category": "Electronics",
+    "brand": "Samsung",
+    "price": 74999,
+    "stock": 75,
+    "tags": ["mobile", "smartphone", "android"],
+    "specifications": {
+      "ram": 8,
+      "storage": 256,
+      "processor": "Snapdragon"
+    },
+    "rating": 4.6,
+    "createdAt": { "$date": "2024-01-15T10:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "65b000000000000000000004" },
+    "name": "Sony WH-1000XM5",
+    "category": "Audio",
+    "brand": "Sony",
+    "price": 29999,
+    "stock": 50,
+    "tags": ["headphones", "wireless", "audio"],
+    "specifications": {
+      "batteryHours": 30,
+      "type": "over-ear",
+      "noiseCancellation": true
+    },
+    "rating": 4.5,
+    "createdAt": { "$date": "2022-05-10T10:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "65b000000000000000000005" },
+    "name": "Dell XPS 13",
+    "category": "Electronics",
+    "brand": "Dell",
+    "price": 119999,
+    "stock": 35,
+    "tags": ["laptop", "computer", "business"],
+    "specifications": {
+      "ram": 16,
+      "storage": 512,
+      "processor": "Intel i7"
+    },
+    "rating": 4.4,
+    "createdAt": { "$date": "2021-07-12T10:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "65b000000000000000000006" },
+    "name": "Nike Air Max",
+    "category": "Footwear",
+    "brand": "Nike",
+    "price": 12999,
+    "stock": 120,
+    "tags": ["shoes", "running", "sports"],
+    "specifications": {
+      "sizeRange": "7-12",
+      "color": "Black"
+    },
+    "rating": 4.3,
+    "createdAt": { "$date": "2022-03-15T10:00:00Z" }
+  }
+]

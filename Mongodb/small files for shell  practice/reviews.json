@@ -1,0 +1,32 @@
+[
+  {
+    "_id": { "$oid": "67d000000000000000000001" },
+    "userId": { "$oid": "64a000000000000000000001" },
+    "productId": { "$oid": "65b000000000000000000002" },
+    "rating": 5,
+    "title": "Excellent phone",
+    "comment": "Great performance and camera.",
+    "verifiedPurchase": true,
+    "createdAt": { "$date": "2024-02-01T10:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "67d000000000000000000002" },
+    "userId": { "$oid": "64a000000000000000000002" },
+    "productId": { "$oid": "65b000000000000000000001" },
+    "rating": 5,
+    "title": "Amazing laptop",
+    "comment": "Excellent performance for development.",
+    "verifiedPurchase": true,
+    "createdAt": { "$date": "2024-03-01T10:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "67d000000000000000000003" },
+    "userId": { "$oid": "64a000000000000000000004" },
+    "productId": { "$oid": "65b000000000000000000006" },
+    "rating": 4,
+    "title": "Comfortable shoes",
+    "comment": "Good for running.",
+    "verifiedPurchase": true,
+    "createdAt": { "$date": "2024-03-20T10:00:00Z" }
+  }
+]
