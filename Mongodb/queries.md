@@ -2,7 +2,7 @@ db.users.find({ "address.country": "India" }).count();
 db.users.find({ age: { $gt: 30 } });
 db.users.find({ age: { $gt: 25, $lt: 30 } });
 db.users.find({ status: "active" });
-(10).db.users.find({ status: "inactive" }, { name: 1, email: 1 });
+db.users.find({ status: "inactive" }, { name: 1, email: 1 });
 
 
 Tags is a array field ["value", "value"]
