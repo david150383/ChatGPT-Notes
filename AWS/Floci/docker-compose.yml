@@ -1,0 +1,13 @@
+services:
+  floci:
+    image: floci/floci:2.0.1
+    ports:
+      - "4566:4566"
+    environment:
+      FLOCI_SECURITY_EXTRA_CORS_ALLOWED_ORIGINS: "http://localhost:3011,https://my-frontend-app.com"
+      FLOCI_STORAGE_MODE: hybrid
+      FLOCI_STORAGE_PERSISTENT_PATH: /app/data
+
+    volumes:
+      - ./data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock

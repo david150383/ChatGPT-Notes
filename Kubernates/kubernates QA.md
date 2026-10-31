@@ -351,6 +351,10 @@ Startup probe is useful for applications that take a long time to start.
 
 It prevents liveness/readiness checks from killing the application prematurely during startup.
 
+Kubernetes checks them in a specific order. The startup probe runs first; liveness and readiness probes do not run until startup succeeds.
+
+After startup succeeds: Liveness and readiness probes begin according to their configured schedules. They can run independently.
+
 ---
 
 # 🔴 Autoscaling

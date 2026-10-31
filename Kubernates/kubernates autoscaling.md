@@ -113,6 +113,54 @@ The key idea:
 
 > **Current metric ÷ target metric determines the scaling pressure.**
 
+```
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: webapi-hpa
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: webapi
+
+  minReplicas: 2
+  maxReplicas: 10
+
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60
+
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+        - type: Pods
+          value: 4
+          periodSeconds: 60
+
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+        - type: Percent
+          value: 25
+          periodSeconds: 60
+```
+
+##### How it behaves
+- CPU utilization rises above the target: Kubernetes adds Pods as needed.
+- CPU utilization falls: Kubernetes can remove Pods, subject to the scale-down policy.
+- Minimum replicas: 2.
+- Maximum replicas: 10.
+- Scale-down stabilization: 5 minutes to help avoid unnecessary fluctuations.
+
+The CPU target is calculated relative to the CPU request, not the CPU limit. With a 250m CPU request and a 60% target, the target average usage is approximately 150m per Pod.
+
 ---
 
 # 4. VPA — Vertical Pod Autoscaler
@@ -144,6 +192,45 @@ t3.medium → t3.large
 ```
 
 That's **node/EC2 scaling**, not VPA.
+
+```
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: webapi-vpa
+  namespace: default
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: webapi
+
+  updatePolicy:
+    updateMode: "Off"
+
+  resourcePolicy:
+    containerPolicies:
+      - containerName: webapi
+        minAllowed:
+          cpu: 100m
+          memory: 128Mi
+        maxAllowed:
+          cpu: "2"
+          memory: 2Gi
+        controlledResources:
+          - cpu
+          - memory
+```
+### VPA update modes
+
+| Mode | Behavior |
+| --- | --- |
+| `Off` | Calculates recommendations without applying them |
+| `Initial` | Applies recommendations when new Pods are created |
+| `Recreate` | Can evict and recreate Pods to apply resource changes |
+| `InPlaceOrRecreate` | Attempts in-place resource updates, falling back to recreation when needed |
+
+For a first deployment, `Off` is a good way to observe recommendations safely.
 
 ---
 

@@ -114,6 +114,7 @@ Generators are useful for:
 * ✅ Creating custom iterators
 * ✅ Infinite sequences
 * ✅ Managing asynchronous workflows (before `async/await` became common)
+* ✅ For example your server have only 2gb ram and you need to load 10gb file and do something with it, so create a custom generator function and load in chunk,
 
 ### Generator vs Normal Function
 
