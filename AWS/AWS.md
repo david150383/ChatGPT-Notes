@@ -55,7 +55,6 @@ When we click on next it will show a `Tags` optional option which we can use for
 Click on create user button, it will show success message and details for user with copy access key, access secret etc.
 ![Create user](./images/1.png)
 
-lession 108
 Let's create admin user using AWS CLI
 
 #### Step 1: Create the IAM user
@@ -215,10 +214,37 @@ aws sts get-caller-identity
 
 Security note: Enable MFA and avoid long-lived access keys for routine human administration when temporary credentials are an option.
 
+### See list of users
+```
+aws iam list-users
+```
+**Output**
+```
+{
+    "Users": [
+        {
+            "Path": "/",
+            "UserName": "admin-user",
+            "UserId": "AIDAAVLY5ZL9V9VRCZN3",
+            "Arn": "arn:aws:iam::000000000000:user/admin-user",
+            "CreateDate": "2026-10-31T07:02:48.911721+00:00"
+        }
+    ]
+}
+```
 
+#### Display only usernames in table format
+```
+aws iam list-users --query "Users[*].UserName" --output table
+```
+**Output**
+```
+----------------
+|   ListUsers  |
++--------------+
+|  admin-user  |
++--------------+
+```
 
-
-
-
-
-
+## VPC
+By default each region has a default VPC (Virtual Private Cloude), if we want we can create more. Everything thing will be under a vpc. It also have subnet which is basically Availability zones.
