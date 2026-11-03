@@ -1,0 +1,77 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: >
+  Learning stack - EC2 instance, SSH key pair and security group.
+
+Parameters:
+  AmiId:
+    Type: String
+    Description: Amazon Linux 2023 AMI ID
+    Default: ami-0abcdef1234567891
+
+  InstanceType:
+    Type: String
+    Description: EC2 instance type
+    Default: t2.micro
+
+  SSHLocation:
+    Type: String
+    Description: CIDR range allowed to connect through SSH
+    Default: 0.0.0.0/0
+
+Resources:
+
+  EC2KeyPair:
+    Type: AWS::EC2::KeyPair
+    Properties:
+      KeyName: my-ec2-key-cfn
+      KeyType: rsa
+      KeyFormat: pem
+
+  EC2SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: ec2-learning-sg-cfn
+      GroupDescription: Security group managed by CloudFormation
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !Ref SSHLocation
+      Tags:
+        - Key: Name
+          Value: ec2-learning-sg-cfn
+
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref AmiId
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref EC2KeyPair
+      SecurityGroupIds:
+        - !GetAtt EC2SecurityGroup.GroupId
+      Tags:
+        - Key: Name
+          Value: my-first-ec2-cfn
+
+Outputs:
+
+  InstanceId:
+    Description: EC2 instance ID
+    Value: !Ref EC2Instance
+
+  PublicIp:
+    Description: Public IP address
+    Value: !GetAtt EC2Instance.PublicIp
+
+  PrivateIp:
+    Description: Private IP address
+    Value: !GetAtt EC2Instance.PrivateIp
+
+  SecurityGroupId:
+    Description: Security group ID
+    Value: !GetAtt EC2SecurityGroup.GroupId
+
+  KeyPairId:
+    Description: EC2 key pair ID
+    Value: !GetAtt EC2KeyPair.KeyPairId

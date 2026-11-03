@@ -93,7 +93,7 @@ For example
 ```
 --cidr 203.0.113.25/32
 ```
-
+32 means only 1 fixed ip as above.
 
 #### 4. Launch EC2 instance
 ```
@@ -105,6 +105,9 @@ aws ec2 run-instances \
   --count 1 \
   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=my-first-ec2}]'
 ```
+
+count 1 means one instance
+
 **Output**
 ```
 {
@@ -519,3 +522,44 @@ ssh -i my-ec2-key.pem ec2-user@PUBLIC_IP
 As we are using floci local emulator which not provide public ip, so we can not SSH right now, but in real AWS you can get public ipv4 address from instance security group section.
 
 As we have use Amazon Linux image which by default has a ec2-user that's why we used this for ssh, so don't use root.
+
+#### 8. Install Docker into instance
+- First run below command for package manager get updated
+```
+sudo yum update
+```
+
+- install docker
+```
+sudo yum install docker
+```
+
+- check docker version installed
+```
+docker --version
+```
+- Start docker deamon
+```
+sudo service docker start
+```
+
+- If you have private docker image than login first
+```
+docker login
+```
+As not used any domain like nexus or ecr, it means login to docker hub and our website image is on docker hub
+
+- run docker run command with port forwarding so we can run it, for example i want to run application in port 3000
+```
+docker run -d -p 3000:3080 myimagename
+```
+
+- Make sure security group allowed tcp inbound rules for port 3000
+type : Custom TCP
+Port : 3000
+Source : any
+
+Now you can open website with public ipv4:3000
+Security group also privide a ipv4 dns name which we can use for access website.
+![Security group](./images/3.png)
+

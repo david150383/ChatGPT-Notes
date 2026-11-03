@@ -50,6 +50,8 @@ Default region name: us-east-1
 Default output format: json
 ```
 
+Above aws configure command will store above details in home directory/.aws folder, it will store region and output format in config file and key and secret in credentials files.
+
 ## Setup floci using docker desktop
 I have created `docker-compose.yml` which contain all details for start docker container for floci.
 ```
