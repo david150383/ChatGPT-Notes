@@ -361,6 +361,17 @@ Users Q-Z → DB3
 - Pessimistic locking
 - Version columns
 
+| Feature | Optimistic Locking | Pessimistic Locking |
+| --- | --- | --- |
+| Approach | Check conflicts later | Prevent conflicts upfront |
+| Locking | No lock during read | Acquires locks |
+| Concurrency | Generally higher | Generally lower |
+| Performance | Good for low conflicts | Good for high contention |
+| Conflicts | Detected during update | Other transactions wait |
+| Deadlocks | Less likely from row locking | Possible |
+| Implementation | Version/timestamp | Database locks |
+| Retry handling | Usually required | Usually not required for lock conflicts |
+
  ### Problem: Duplicate request creates duplicate record
 
  → **Idempotency key / unique constraint**

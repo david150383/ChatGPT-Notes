@@ -314,6 +314,7 @@ Replace the account ID and region with your actual ECR details.
 | `docker volume prune`    | Remove unused volumes                         |
 | `docker system prune`    | Remove several categories of unused resources |
 | `docker system prune -a` | Also remove all unused images                 |
+| `docker builder prune -a` | Also remove All Unused Build Cache           |
 
 Be careful: cleanup commands can remove resources you intended to keep. Inspect disk usage before running aggressive cleanup, and avoid pruning volumes unless you understand their contents.
 
